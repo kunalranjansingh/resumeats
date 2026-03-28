@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATS Resume Checker</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='14' font-size='16'%3E%E2%9C%85%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>ATS Resume Checker</h1>
+      <p>Upload your resume or paste text for ATS compatibility analysis.</p>
+    </header>
+
+    <section class="upload-section">
+      <div id="drop-zone" class="drop-zone">
+        <p>Drag &amp; drop resume here (PDF or DOCX)</p>
+        <p>or</p>
+        <input type="file" id="file-input" accept=".pdf,.docx" />
+        <button id="clear-btn" class="btn secondary">Clear</button>
+      </div>
+
+      <div class="textarea-block">
+        <label for="manual-text">Paste resume text (optional):</label>
+        <textarea id="manual-text" rows="10" placeholder="Paste resume text here..."></textarea>
+      </div>
+
+      <div class="controls">
+        <button id="analyze-btn" class="btn primary">Analyze Resume</button>
+      </div>
+
+      <div id="preview" class="preview-card hidden">
+        <strong>Selected file:</strong> <span id="file-name"></span>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>Analyzing resume...</span>
+      </div>
+    </section>
+
+    <section id="results" class="results-section hidden">
+      <div class="card score-card">
+        <h2>ATS Score</h2>
+        <div class="score-number">Score: <span id="score-value">0</span> / 100</div>
+        <div class="progress">
+          <div id="score-bar" class="progress-bar"></div>
+          <span id="score-text" class="score-text"></span>
+        </div>
+      </div>
+
+      <div class="card grid-card">
+        <div>
+          <h3>Missing Keywords</h3>
+          <ul id="missing-keywords"></ul>
+        </div>
+        <div>
+          <h3>Strengths</h3>
+          <ul id="strengths"></ul>
+        </div>
+        <div>
+          <h3>Weaknesses</h3>
+          <ul id="weaknesses"></ul>
+        </div>
+        <div>
+          <h3>Suggestions</h3>
+          <ul id="suggestions"></ul>
+        </div>
+        <div>
+          <h3>Formatting Issues</h3>
+          <ul id="formatting-issues"></ul>
+        </div>
+      </div>
+    </section>
+
+    <div id="error-msg" class="error-card hidden"></div>
+
+    <footer>
+      <p>Built with ❤️ by Kunal Singh</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
